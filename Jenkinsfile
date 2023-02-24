@@ -40,11 +40,48 @@ pipeline {
 	}
 	
 	//TO upload war file into S3 bucket using IAM role and S3Profile configuration in jenkins.
-	
+	 stage('Upload To S3 Bucket ') {
+      steps {
+        s3Upload consoleLogLevel: 'INFO',
+	dontSetBuildResultOnFailure: false,
+	dontWaitForConcurrentBuildCompletion: false,
+	entries: [
+				[
+					bucket: 'testbucketpav', 
+					excludedFile: '/webapp/target',
+					flatten: false,
+					gzipFiles: false,
+					keepForever: false,
+					managedArtifacts: false,
+					noUploadOnFailure: false,
+					selectedRegion: 'us-east-1',
+					showDirectlyInBrowser: false,
+					sourceFile: '**/webapp/target/*.war',
+					storageClass: 'STANDARD',
+					uploadFromSlave: false,
+					useServerSideEncryption: false
+				]
+			], 
+	pluginFailureResultConstraint: 'FAILURE', 
+	profileName: 'S3Profile', //Give same name as configured in jenkins
+	userMetadata: []
+
+      }
+    }
 	//To remove old war files
-	
+	stage('Clean'){
+		steps{
+			sh "sudo rm -f /opt/tomcat/webapps/webapp.war" 
+		}
+	}
 	//To download war files from s3 bucket to tomcat 
-	
+	stage('Deploy to Tomcat from S3') {
+	    steps {
+			
+
+	        sh " sudo aws s3 cp s3://testbucketpav/webapp/target/webapp.war /opt/tomcat/webapps/" 
+	    }
+	}
   }
 
   post {
