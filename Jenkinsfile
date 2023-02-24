@@ -39,7 +39,14 @@ pipeline {
 	    }
 	}
 	
+	//TO upload war file into S3 bucket using IAM role and S3Profile configuration in jenkins.
 	
+	//To remove old war files
+	
+	//To download war files from s3 bucket to tomcat 
+	
+  }
+
   post {
 	always {
 		
