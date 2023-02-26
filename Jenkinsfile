@@ -47,7 +47,7 @@ pipeline {
 	dontWaitForConcurrentBuildCompletion: false,
 	entries: [
 				[
-					bucket: 'testbucketpav', 
+					bucket: 'myaawsbucket', 
 					excludedFile: '/webapp/target',
 					flatten: false,
 					gzipFiles: false,
@@ -79,7 +79,7 @@ pipeline {
 	    steps {
 			
 
-	        sh " sudo aws s3 cp s3://testbucketpav/webapp/target/webapp.war /opt/tomcat/webapps/" 
+	        sh " sudo aws s3 cp s3://myaawsbucket/webapp/target/webapp.war /opt/tomcat/webapps/" 
 	    }
 	}
   }
