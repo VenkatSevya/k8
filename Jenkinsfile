@@ -71,7 +71,7 @@ pipeline {
 	//To remove old war files
 	stage('Clean'){
 		steps{
-			sh "sudo rm -f /opt/tomcat/webapps/webapp.war" 
+			sh "sudo rm -rf /opt/tomcat/webapps/webapp.war" 
 		}
 	}
 	//To download war files from s3 bucket to tomcat 
