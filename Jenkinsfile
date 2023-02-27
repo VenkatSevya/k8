@@ -96,15 +96,14 @@ pipeline {
 					echo 'Login Completed'      
     }           
 }   	
+		stage('Push Docker Image') {
+            steps {
+                withDockerRegistry([credentialsId: "dockerhubcreds", url: "https://index.docker.io/v1/"]) {
+                    bat "docker push pavandeepak24/webapp:${BUILD_NUMBER}"
+                }
+            }
+        }
 
-		stage('Push') {
-
-			steps {
-				sh "pwd"
-				sh 'docker tag webapp:${BUILD_NUMBER} pavandeepak24/webapp:${BUILD_NUMBER}'
-				sh 'docker push pavandeepak24/webapp:${BUILD_NUMBER}'
-			}
-		}
   }
 
   post {
