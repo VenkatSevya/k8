@@ -84,7 +84,7 @@ pipeline {
 	stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t pavandeepak24/webapp:${BUILD_NUMBER} .'
+				sh 'docker build -t webapp:${BUILD_NUMBER} .'
 				
 			}
 		}
@@ -101,6 +101,7 @@ pipeline {
 
 			steps {
 				sh "pwd"
+				sh 'docker tag webapp:${BUILD_NUMBER} pavandeepak24/webapp:${BUILD_NUMBER}'
 				sh 'docker push pavandeepak24/webapp:${BUILD_NUMBER}'
 			}
 		}
