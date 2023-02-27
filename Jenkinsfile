@@ -94,7 +94,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
-				sh 'docker push PavanDeepak24/webapp:${BUILD_NUMBER}'
+				sh 'docker push pavandeepak24/webapp:${BUILD_NUMBER}'
 			}
 		}
   }
