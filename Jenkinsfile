@@ -80,6 +80,7 @@ pipeline {
 	    steps {
 			
 				sh " sudo aws s3 cp s3://myaawsbucket/webapp/target/webapp.war /opt/tomcat/webapps/" 
+				sh "sudo cp /var/lib/jenkins/workspace/Kubernetes/webapps/target/webapp.war /root/"
 	    }
 	}
 
