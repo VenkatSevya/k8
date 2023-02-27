@@ -11,6 +11,7 @@ pipeline {
 	IMAGE_REPO_NAME = "webapp"
 	IMAGE_TAG = "${BUILD_NUMBER}"
 	REPOSIT_URL = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazon.aws.com/${IMAGE_REPO_NAME}"
+	DOCKERHUB_CREDENTIALS= credentials('dockerhubcredentials')     
   }
 
   stages {
@@ -86,14 +87,26 @@ pipeline {
 	    }
 	}
 
-	stage('Build Docker Image') {
-	    steps {
-			
+	stage('Build Docker Image') {  
+    steps{                     
+	sh 'sudo docker build -t pavandeepak24/webapp:$BUILD_NUMBER .'     
+	echo 'Build Image Completed'                
+    }           
+} 
 
-	        sh " sudo docker build " 
-			
-	    }
-	}
+stage('Login to Docker Hub') {      	
+    steps{                       	
+	sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                		
+	echo 'Login Completed'      
+    }           
+}
+
+stage('Push Image to Docker Hub') {         
+    steps{                            
+ sh 'sudo docker push pavandeepak24/webapp:$BUILD_NUMBER'           
+echo 'Push Image Completed'       
+    }            
+}  
 
 
   }
