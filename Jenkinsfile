@@ -99,7 +99,7 @@ pipeline {
 		stage('Push Docker Image') {
             steps {
                 withDockerRegistry([credentialsId: "dockerhubcreds", url: "https://index.docker.io/v1/"]) {
-                    bat "docker push pavandeepak24/webapp:${BUILD_NUMBER}"
+                    sh "docker push pavandeepak24/webapp:${BUILD_NUMBER}"
                 }
             }
         }
