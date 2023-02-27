@@ -87,7 +87,8 @@ pipeline {
 	stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t pavandeepak24/tomcat9:${BUILD_NUMBER} .'
+				sh 'docker build -t pavandeepak24/webapp:${BUILD_NUMBER} .'
+				
 			}
 		}
 
@@ -95,7 +96,7 @@ pipeline {
 
 			steps {
 				sh "pwd"
-				sh 'docker push pavandeepak24/tomcat9:${BUILD_NUMBER}'
+				sh 'docker push pavandeepak24/webapp:${BUILD_NUMBER}'
 			}
 		}
   }
