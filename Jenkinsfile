@@ -6,11 +6,8 @@ pipeline {
     maven "M2_HOME"
   }
   environment{
-	AWS_ACCOUNT_ID = "962826464166" 
-	AWS_DEFAULT_REGION = "us-east-1"
-	IMAGE_REPO_NAME = "webapp"
-	IMAGE_TAG = "${BUILD_NUMBER}"
-	REPOSIT_URL = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazon.aws.com/${IMAGE_REPO_NAME}"
+	
+	DOCKERHUB_CREDENTIALS= credentials('dockerhubcreds')  
 	
   }
 
@@ -91,6 +88,14 @@ pipeline {
 				
 			}
 		}
+
+	stage('Login to Docker Hub') { 
+
+    		steps{                       	
+					sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                		
+					echo 'Login Completed'      
+    }           
+}   	
 
 		stage('Push') {
 
