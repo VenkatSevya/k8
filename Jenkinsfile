@@ -87,7 +87,7 @@ pipeline {
 	stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t PavanDeepak24/webapp:latest .'
+				sh 'docker build -t webapp:${BUILD_NUMBER} .'
 			}
 		}
 
