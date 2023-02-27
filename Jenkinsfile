@@ -73,7 +73,6 @@ pipeline {
 	stage('Clean'){
 		steps{
 			sh "sudo rm -rf /opt/tomcat/webapps/webapp.war" 
-			sh "sudo rm -rf /root/webapp.war"
 		}
 	}
 	//To download war files from s3 bucket to tomcat 
@@ -82,31 +81,9 @@ pipeline {
 			
 
 	        sh " sudo aws s3 cp s3://myaawsbucket/webapp/target/webapp.war /opt/tomcat/webapps/" 
-			sh "sudo cp /var/lib/jenkins/workspace/Kubernetes/webapp/target/*.war /root/"
 	    }
 	}
   }
-
-  stage('Docker Build') {
-
-			steps {
-				sh 'docker build -t pavandeepak24/webapp:latest .'
-			}
-		}
-
-  stage('Login') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
-
-		stage('Push') {
-
-			steps {
-				sh 'docker push pavandeepak24/webapp:latest'
-			}
-		}
 
   post {
 	always {
