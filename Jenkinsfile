@@ -117,6 +117,7 @@ echo 'Push Image Completed'
 		emailext body: '$DEFAULT_CONTENT', //configure message in body in jenkins
 		 subject: 'Jenkins Build Status', 
 		 to: 'pavandeepakpagadala@gmail.com'
+		 sh 'docker logout' 
 		
 
 	}
