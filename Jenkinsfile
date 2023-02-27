@@ -11,6 +11,7 @@ pipeline {
 	IMAGE_REPO_NAME = "webapp"
 	IMAGE_TAG = "${BUILD_NUMBER}"
 	REPOSIT_URL = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazon.aws.com/${IMAGE_REPO_NAME}"
+	DOCKERHUB_CREDENTIALS=credentials('dockerhub-creds')
   }
 
   stages {
@@ -86,12 +87,35 @@ pipeline {
 	}
   }
 
+  stage('Docker Build') {
+
+			steps {
+				sh 'docker build -t pavandeepak24/webapp:latest .'
+			}
+		}
+
+  stage('Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push pavandeepak24/webapp:latest'
+			}
+		}
+
   post {
 	always {
 		
 		emailext body: '$DEFAULT_CONTENT', //configure message in body in jenkins
 		 subject: 'Jenkins Build Status', 
 		 to: 'pavandeepakpagadala@gmail.com'
+
+		 sh 'docker logout'
 		
 
 	}
