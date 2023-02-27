@@ -87,7 +87,7 @@ pipeline {
 	stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t tomcat9:${BUILD_NUMBER} .'
+				sh 'docker build -t pavandeepak24/tomcat9:${BUILD_NUMBER} .'
 			}
 		}
 
