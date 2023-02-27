@@ -87,14 +87,14 @@ pipeline {
 	stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t pavandeepak24/webapp:latest .'
+				sh 'docker build -t PavanDeepak24/webapp:latest .'
 			}
 		}
 
 		stage('Push') {
 
 			steps {
-				sh 'docker push pavandeepak24/webapp:${BUILD_NUMBER}'
+				sh 'docker push PavanDeepak24/webapp:${BUILD_NUMBER}'
 			}
 		}
   }
