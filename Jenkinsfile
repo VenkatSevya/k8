@@ -94,6 +94,7 @@ pipeline {
 		stage('Push') {
 
 			steps {
+				sh "pwd"
 				sh 'docker push pavandeepak24/tomcat9:${BUILD_NUMBER}'
 			}
 		}
