@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: pavandeepak24/webapp:${BUUILD_NUMBER}
+        image: pavandeepak24/webapp:${BUILD_NUMBER}
         ports:
         - containerPort: 8080
 ---
