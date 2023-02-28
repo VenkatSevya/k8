@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y awscli
 # Set the working directory
 WORKDIR /usr/local/tomcat/webapps
 
+# Delete any existing WAR file
+RUN rm -f *.war
+
 # Download the WAR file from S3
 RUN aws s3 cp s3://myaawsbucket/webapp/target/webapp.war .
 
