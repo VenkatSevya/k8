@@ -83,8 +83,8 @@ pipeline {
 	stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t webapp:latest .'
-				sh 'docker tag webapp:latest pavandeepak24/webapp:latest'
+				sh 'docker build -t webapp:${BUILD_NUMBER} .'
+				sh 'docker tag webapp:${BUILD_NUMBER} pavandeepak24/webapp:${BUILD_NUMBER}'
 				
 			}
 		}
@@ -99,10 +99,11 @@ pipeline {
 		stage('Push Docker Image') {
             steps {
                 withDockerRegistry([credentialsId: "dockerhubcreds", url: "https://index.docker.io/v1/"]) {
-                    sh "docker push pavandeepak24/webapp:latest"
+                    sh "docker push pavandeepak24/webapp:${BUILD_NUMBER}"
                 }
             }
         }
+
 
 		stage('Deploy to K8s'){
             steps{
@@ -110,6 +111,8 @@ pipeline {
                     kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'kubeconfig')
                 }
             }
+        }    
+
   }
 
   post {
