@@ -122,7 +122,7 @@ pipeline {
 		
 		emailext body: '$DEFAULT_CONTENT', //configure message in body in jenkins
 		 subject: 'Jenkins Build Status', 
-		 to: 'pavandeepakpagadala@gmail.com'
+		 to: 'pavan.pagadala@sevya-it.com'
 
 		 sh 'docker logout' 
 		
