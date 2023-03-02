@@ -86,7 +86,7 @@ pipeline {
 				echo ' Build number ${BUILD_NUMBER}'
 				sh 'docker build -t webapp:${BUILD_NUMBER} .'
 				sh 'docker tag webapp:${BUILD_NUMBER} pavandeepak24/webapp:${BUILD_NUMBER}  '
-				sh 'docker rmi -f webapp:${BUILD_NUMBER}-1'
+				
 				
 			}
 		}
