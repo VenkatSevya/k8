@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sevya Pvt Ltd</title>
+    <title>Sevya</title>
   </head>
   <body>
     <header>
