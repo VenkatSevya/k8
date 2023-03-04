@@ -4,6 +4,7 @@ pipeline {
   tools {
     // Install the Maven version configured as "M2_HOME" and add it to the path.
     maven "M2_HOME"
+	sonarScanner 'SonarScanner-4.8.0'
   }
   environment{
 	
@@ -41,7 +42,7 @@ pipeline {
 		def scannerHome = tool 'SonarScanner-4.8.0';
 		    steps {
 				withSonarQubeEnv('sonar'){
-					//sh "${scannerHome}/bin/sonar-scanner"
+					sh "${scannerHome}/bin/sonar-scanner"
 					sh "mvn sonar:sonar"
 				}
 			}
