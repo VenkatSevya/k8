@@ -46,7 +46,7 @@ pipeline {
                 // Set the environment variables for the SonarQube server configuration
                 withSonarQubeEnv('sonar') {
                     // Run the SonarScanner command to analyze the code
-                    sh 'sonar-scanner'
+                    sh 'mvn sonar:sonar'
                 }
             }
         }
