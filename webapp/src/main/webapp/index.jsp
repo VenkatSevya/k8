@@ -17,7 +17,7 @@
     <main>
       <section>
         <h2>About me</h2>
-        <p>Hi, my name is Pavan Deepak and I'm a DevOps Engineer.</p>
+        <p>Hi, my name is Pavan Deepak and I'm a DevOps Engineer</p>
       </section>
       <section>
         <h2>Latest Blog Posts</h2>
