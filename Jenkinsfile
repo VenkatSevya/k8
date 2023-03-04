@@ -36,6 +36,17 @@ pipeline {
 
 	    }
 	}
+
+	stage('Sonarqube Analysis'){
+		def scannerHome = tool 'SonarScanner-4.8.0';
+		    steps {
+				withSonarQubeEnv('sonar'){
+					sh "${scannerHome}/bin/sonar-scanner"
+					sh "mvn sonar:sonar"
+				}
+			}
+	}
+
 	
 	//TO upload war file into S3 bucket using IAM role and S3Profile configuration in jenkins.
 	 stage('Upload To S3 Bucket ') {
