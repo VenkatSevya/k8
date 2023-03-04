@@ -41,7 +41,7 @@ pipeline {
 		def scannerHome = tool 'SonarScanner-4.8.0';
 		    steps {
 				withSonarQubeEnv('sonar'){
-					sh "${scannerHome}/bin/sonar-scanner"
+					//sh "${scannerHome}/bin/sonar-scanner"
 					sh "mvn sonar:sonar"
 				}
 			}
