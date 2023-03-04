@@ -4,7 +4,7 @@ pipeline {
   tools {
     // Install the Maven version configured as "M2_HOME" and add it to the path.
     maven "M2_HOME"
-	sonarScanner 'SonarScanner-4.8.0'
+	
   }
   environment{
 	
@@ -38,15 +38,18 @@ pipeline {
 	    }
 	}
 
-	stage('Sonarqube Analysis'){
-		def scannerHome = tool 'SonarScanner-4.8.0'
-		    steps {
-				withSonarQubeEnv('sonar'){
-					sh "${scannerHome}/bin/sonar-scanner"
-					sh "mvn sonar:sonar"
-				}
-			}
-	}
+	stage('SonarQube Analysis') {
+            steps {
+                // Define the SonarScanner tool with version 4.8.0
+                tool name: 'SonarScanner-4.8.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+
+                // Set the environment variables for the SonarQube server configuration
+                withSonarQubeEnv('sonar') {
+                    // Run the SonarScanner command to analyze the code
+                    sh 'sonar-scanner'
+                }
+            }
+        }
 
 	
 	//TO upload war file into S3 bucket using IAM role and S3Profile configuration in jenkins.
