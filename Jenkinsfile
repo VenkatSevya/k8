@@ -92,9 +92,7 @@ pipeline {
 	    steps {
 			
 				sh " sudo aws s3 cp s3://myaawsbucket/webapp/target/webapp.war /opt/tomcat/webapps/" 
-				sh "sudo cd /opt/tomcat/bin/"
-				sh "sudo ./shutdown.sh"
-				sh "sudo ./startup.sh"
+				sh "sudo sh /opt/tomcat/bin/shutdown.sh"
 	    }
 	}
 
