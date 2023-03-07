@@ -93,6 +93,7 @@ pipeline {
 			
 				sh " sudo aws s3 cp s3://myaawsbucket/webapp/target/webapp.war /opt/tomcat/webapps/" 
 				sh "sudo sh /opt/tomcat/bin/shutdown.sh"
+				sh "sudo sh /opt/tomcat/bin/startup.sh"
 	    }
 	}
 
