@@ -6,7 +6,7 @@
   <body>
     <header>
       <h1>Welcome to Sevya Pvt Ltd</h1>
-    </header>
+    </header> 
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
