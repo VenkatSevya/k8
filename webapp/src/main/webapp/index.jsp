@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
   <head>
-    <title>Sevya</title>
+    <title>Sevya Pvt Ltd</title>
   </head>
   <body>
     <header>
