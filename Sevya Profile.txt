@@ -1,0 +1,48 @@
+Devops Engineer
+Pavan Deepak Pagadala
+
+SUMMARY
+Approximately 3 years of experience in with experience developing, building and supporting IT solutions
+Hands-on experience in creating builds using Jenkins and Deploying into application servers using Ansible and Docker. 
+Kubernetes (Kubernetes cluster deployment, management, and troubleshooting, Kubernetes networking, Kubernetes security, Kubernetes storage)
+Expertise in creating Kubernetes cluster and deploying applications on nodes.
+Proficient in automating Kubernetes deployment with jenkins pipelines.
+Handled routine application maintenance tasks, including troubleshooting and testing.
+TECHNICAL SKILL
+
+Core Skills                                        	:  Kubernetes, DevOps and Public Cloud
+Platform                                            	:  AWS Services
+Configuration Management           	:  Ansible
+Build Tools                                         	:  Jenkins, Maven
+Version Control Tools            	      	:  GIT, GitHub
+Web Servers                                      	:  Apache, Tomcat
+Languages/Scripts                    	:  PL/SQL, Shell Script
+Operating Systems                   	:  Linux, Windows
+Containerization                               	:  Docker, Kubernetes
+Code Analysis			: Sonarqube
+EDUCATION
+ 
+B.Tech (CSE) from B V C Engineering College, Odalarveu, Andhra Pradesh (2019)
+ PROFESSIONAL EXPERIENCE
+
+Project  : DevOps/System Admin activities for  - Vehicle Insurance
+Role : Systems Engineer
+Client : TCS
+Product : Vehicle Insurance Product
+Project Overview :  An integrated Vehicle insurance application for insurance for the users from having vehicle insurance to the claim settlement to the policyholders. Application was designed and developed using Java and  deployed in Kubernetes and hosted on public cloud using AWS services 
+
+
+Responsibilities : 
+Maintenance of CI/CD pipelines.
+Successfully executed 1800+ deployments.
+Maintained 3 Git branches without conflicts with team collaboration.
+Created enhancements to resolve client problems and meet operational standards.
+Collaborated with a multidisciplinary team of designers, developers and system administrators.
+Resolved scalability problems and addressed security concerns.
+Worked in Agile Scrum team environment with high-tempo production cadence.
+Managed efficient SQL queries and data transport.
+Troubleshooted and tested software and debugged to clean up code and improve efficiency.
+Explained technical trade-offs of different approaches to stakeholders and estimated development time required.
+Configured servers and managed provisioning.
+Documented technical workflows and knowledge to educate newly hired employees.
+
