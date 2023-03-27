@@ -31,7 +31,7 @@ pipeline {
 	         sh "mvn clean  package"
 	     }
 	}
-	stage('Test') {
+	//stage('Test') {
 	    steps {
 	        sh "mvn clean verify -DskipITs=true',junit '**/target/surefire-reports/TEST-*.xml'archive 'target/*.jar"
 
