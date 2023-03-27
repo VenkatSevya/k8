@@ -102,7 +102,7 @@ pipeline {
 			steps {
 				echo ' Build number ${BUILD_NUMBER}'
 				sh 'docker build --no-cache  -t webapp:${BUILD_NUMBER} .'
-				sh 'docker tag webapp:${BUILD_NUMBER} pavandeepak24/webapp:${BUILD_NUMBER}  '
+				sh 'docker tag webapp:${BUILD_NUMBER} venkata141/webapp:${BUILD_NUMBER}  '
 				
 				
 			}
@@ -118,7 +118,7 @@ pipeline {
 		stage('Push Docker Image') {
             steps {
                 withDockerRegistry([credentialsId: "dockerhubcreds", url: "https://index.docker.io/v1/"]) {
-                    sh "docker push pavandeepak24/webapp:${BUILD_NUMBER}"
+                    sh "docker push venkata141/webapp:${BUILD_NUMBER}"
                 }
             }
         }
@@ -139,7 +139,7 @@ pipeline {
 		
 		emailext body: '$DEFAULT_CONTENT', //configure message in body in jenkins
 		 subject: 'Jenkins Build Status',
-		 to: 'pavandeepakpagadala@gmail.com, pavandeepak007@gmail.com'
+		 to: 'gopiperumalla14@gmail.com'
 
 		 sh 'docker logout' 
 		
