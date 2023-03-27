@@ -31,14 +31,14 @@ pipeline {
 	         sh "mvn clean  package"
 	     }
 	}
-	//stage('Test') {
+	stage('Test') {
 	    steps {
 	        sh "mvn clean verify -DskipITs=true',junit '**/target/surefire-reports/TEST-*.xml'archive 'target/*.jar"
 
 	    }
 	}
 
-	stage('SonarQube Analysis') {
+	//stage('SonarQube Analysis') {
             steps {
                 // Define the SonarScanner tool with version 4.8.0
                 tool name: 'SonarScanner-4.8.0', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
